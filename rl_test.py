@@ -4,8 +4,11 @@ from tensorflow.keras import Sequential, Dense
 from std_msgs.msg import Float32
 import os
 
+def callback(msg):
+    decision.data = model(msg) #verifier type msg
+    pub.publish(decision)
+
 rospy.init_node("ia_node")
-pub = rospy.Publisher('decision', Float32)
 
 rate = rospy.Rate(2)
 decision = Float32()
@@ -21,5 +24,6 @@ else:
 
     model.save('path/to/location')
 
-#decision.data = x.
-pub.publish(decision)
+pub = rospy.Publisher('decision', Float32)
+sub = rospy.Subscriber('/counter', Float32, callback)
+rospy.spin()
