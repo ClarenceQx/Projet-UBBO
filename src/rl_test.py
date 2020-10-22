@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import rospy
 import tensorflow as tf
 from tensorflow.keras import Sequential, Dense
@@ -24,6 +26,6 @@ else:
 
     model.save('path/to/location')
 
-pub = rospy.Publisher('decision', Float32)
+pub = rospy.Publisher('/decision', Float32)
 sub = rospy.Subscriber('/counter', Float32, callback)
 rospy.spin()
