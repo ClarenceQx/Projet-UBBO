@@ -1,0 +1,5 @@
+<launch>
+	<!--Neural network launch file -->
+	<node pkg="neural_network" type="echange_test.py" name="env_node" output="screen">
+	</node>
+</launch>

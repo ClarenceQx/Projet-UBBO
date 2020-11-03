@@ -10,7 +10,10 @@ rospy.init_node("env_node")
 
 rate = rospy.Rate(2)
 obs = Float32()
+obs.data = 10.0
 
 pub = rospy.Publisher('/counter', Float32)
-sub = rospy.Suscriber('/decision', FLoat32, callback)
+sub = rospy.Subscriber('/decision', Float32, callback)
+while not rospy.is_shutdown():
+	pub.publish(obs)
 rospy.spin()

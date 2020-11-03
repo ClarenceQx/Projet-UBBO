@@ -1,0 +1,5 @@
+<launch>
+	<!-- Neural network launch file -->
+	<node pkg="neural_network" type="rl_test.py" name="ia_node" output="screen">
+	</node>
+</launch>
