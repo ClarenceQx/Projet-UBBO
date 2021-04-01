@@ -1,0 +1,5 @@
+<launch>
+  <node pkg='icp_pkg' type='ICP.py' name='icp' output='screen'>
+  </node>
+</launch>
+

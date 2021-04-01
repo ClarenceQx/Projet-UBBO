@@ -1,0 +1,14 @@
+<launch>
+    <arg name="scan_topic" default="scan"/>
+    <arg name="base_frame" default="base_footprint"/>
+    <arg name="odom_frame" default="odom"/>
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen"> 
+    <rosparam file="$(find my_mapping_launcher)/params/gmapping_params.yaml" command="load"/> 
+        <param name="base_frame" value="$(arg base_frame)"/>
+        <param name="odom_frame" value="$(arg odom_frame)"/>
+        <remap from="scan" to="/scan"/>
+    </node>
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find my_mapping_launcher)/rviz/config_mapping_chef_reel.rviz" />
+
+</launch>

@@ -1,0 +1,27 @@
+<launch>
+
+  <include file="$(find chefbot_description)/launch/upload_model.launch" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+
+  <node pkg='chefbot_bringup' type='teleop_chef.py' name='teleop_chef_node' output='screen'>
+  </node>
+
+  <node pkg='chefbot_bringup' type='twist_motor_chef.py' name='twist_motor_node' output='screen'>
+  </node>
+
+  <node pkg='chefbot_bringup' type='odom_chef.py' name='odom_chef_node' output='screen'>
+  </node>
+
+  <node pkg='chefbot_bringup' type='imu_chef.py' name='imu_chef_node' output='screen'>
+  </node>
+
+  <node pkg='chefbot_bringup' type='pid_vel_l.py' name='pid_l_node' output='screen'>
+  </node>
+
+  <node pkg='chefbot_bringup' type='pid_vel_r.py' name='pid_r_node' output='screen'>
+  </node>
+
+</launch>

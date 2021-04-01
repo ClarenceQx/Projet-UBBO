@@ -1,0 +1,4 @@
+<launch>
+  <node pkg='global_pose' type='global_pose_node.py' name='global_pose' output='screen'>
+  </node>
+</launch>
